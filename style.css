@@ -1,0 +1,28 @@
+header {
+    height: 200px;
+    background-color: #d6ccc2;
+    margin: 0 auto;
+}
+
+main {
+    margin: 5%;
+}
+
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    padding-top: 65px;
+}
+
+.cardheader-custom {
+    background-color: #B6A391;
+}
+
+.beige {
+    background-color: #edede9;
+}
+
+.lightbrown-text {
+    color: #d6ccc2;
+}
