@@ -3,14 +3,14 @@ const inquirer = require('inquirer');
 const employees = [];
 
 class Employee {
-    constructor(name, id, email) {
-        this.name = name;
+    constructor(firstName, id, email) {
+        this.firstName = firstName;
         this.id = id;
         this.email = email;
     }
 
     getName() {
-        return this.name;
+        return this.firstName;
     }
 
     getId() {
@@ -20,49 +20,70 @@ class Employee {
     getEmail() {
         return this.email;
     }
+
+    getRole() {
+        return 'Employee'
+    }
 }
+
 
 // Actions needed below (all separate functions)
 
 // Ask them for manager info
 
-    // Prompt the user for the data
-    function promptManager() {
-        inquirer  
-          .prompt([
-            {
-                name: 'firstName',
-                message: "What is the team manager's name?",
-                type: 'input'
-            },
-            {
-                name: 'id',
-                message: "What is the team manager's employee id?",
-                type: 'input'
-            },
-            {
-                name: 'email',
-                message: "What is the team manager's email address?",
-                type: 'input'
-            },
-            {
-                name: 'office',
-                message: "What is the team manager's office number?",
-                type: 'input'
-            }
-          ])
-          // THEN create and store an object for the Manager (into the globally declared array)
-          .then(answers => {
-          
-            const { firstName, id, email } = answers
-            const manager = new Employee(firstName, id, email);
-            console.log(manager)
+// Prompt the user for the data
+function promptManager() {
+    inquirer  
+    .prompt([
+        {
+            name: 'firstName',
+            message: "What is the team manager's name?",
+            type: 'input'
+        },
+        {
+            name: 'id',
+            message: "What is the team manager's employee id?",
+            type: 'input'
+        },
+        {
+            name: 'email',
+            message: "What is the team manager's email address?",
+            type: 'input'
+        },
+        {
+            name: 'officeNumber',
+            message: "What is the team manager's office number?",
+            type: 'input'
+        }
+    ])
+    // THEN create and store an object for the Manager (into the globally declared array)
+    .then(answers => {
         
-          })
-          .catch((error) => {console.log(error)});
-      }
+        const { firstName, id, email, officeNumber } = answers
+        
+        class Manager extends Employee {
+            constructor(officeNumber) {
+        
+                super(firstName, id, email, officeNumber)
+                this.officeNumber = officeNumber
+            }
+        
+            getRole() {
+                return 'Manager';
+            }
+        }
+        
+        
+        const manager = new Manager(firstName, id, email, officeNumber);
+        employees.push(manager)
+        console.log(manager)
+        console.log(employees)
+        
+    })
+    .catch((error) => {console.log(error)});
+}
 
-        // THEN ask what they would like to do next
+    // THEN ask what they would like to do next
 
 promptManager();
 
