@@ -15,6 +15,10 @@ h1 {
     padding-top: 65px;
 }
 
+.card-custom {
+    box-shadow: 2px 2px 15px 1px #d6ccc2;
+}
+
 .cardheader-custom {
     background-color: #B6A391;
 }
