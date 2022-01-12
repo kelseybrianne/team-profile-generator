@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
-const Employee = require('./lib/employeeClass');
 const Manager = require('./lib/managerClass');
+const Engineer = require('./lib/engineerClass');
+// const addEngineer = require('./utils/addEngineer')
 
 const employees = [];
 
@@ -58,9 +59,26 @@ function promptManager() {
             const { next } = answers;
             console.log(next);
             if(next === 'Add an engineer') {
-                addAnEngineer();
+                // const addEngineer = () => {
+                    inquirer  
+                    .prompt([
+                        {
+                            name: 'firstName',
+                            message: "What is the engineer's name?",
+                            type: 'input'
+                        }
+                    ])
+                    .then (answers => {
+                
+                        const { firstName } = answers
+                
+                        const engineer = new Engineer(firstName);
+                        employees.push(engineer);
+                        console.log(employees);
+                    })
+                // }
             } else if (next === 'Add an intern') {
-                addAnIntern();
+                addIntern();
             } else if (next === 'Finish building my team') {
                 generateHTML();
             }
@@ -101,3 +119,5 @@ promptManager();
         // IF 'Be done' -> 'Build an html page'
 
 // Use all of the collected employee data to build an HTML paged
+
+module.exports = employees;
