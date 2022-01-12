@@ -1,31 +1,8 @@
 const inquirer = require('inquirer');
+const Employee = require('./lib/employeeClass');
+const Manager = require('./lib/managerClass');
 
 const employees = [];
-
-class Employee {
-    constructor(firstName, id, email) {
-        this.firstName = firstName;
-        this.id = id;
-        this.email = email;
-    }
-
-    getName() {
-        return this.firstName;
-    }
-
-    getId() {
-        return this.id;
-    }
-
-    getEmail() {
-        return this.email;
-    }
-
-    getRole() {
-        return 'Employee'
-    }
-}
-
 
 // Actions needed below (all separate functions)
 
@@ -61,23 +38,11 @@ function promptManager() {
         
         const { firstName, id, email, officeNumber } = answers
         
-        class Manager extends Employee {
-            constructor(officeNumber) {
-        
-                super(firstName, id, email, officeNumber)
-                this.officeNumber = officeNumber
-            }
-        
-            getRole() {
-                return 'Manager';
-            }
-        }
-        
         
         const manager = new Manager(firstName, id, email, officeNumber);
-        employees.push(manager)
-        console.log(manager)
-        console.log(employees)
+        employees.push(manager);
+        console.log(manager.getRole());
+        console.log(employees);
         
     })
     .catch((error) => {console.log(error)});
