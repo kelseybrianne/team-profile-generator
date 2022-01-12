@@ -44,11 +44,33 @@ function promptManager() {
         console.log(manager.getRole());
         console.log(employees);
         
+        // THEN ask what they would like to do next
+        inquirer  
+        .prompt([
+            {
+                name: 'next',
+                message: "Who would you like to add next?",
+                type: 'list',
+                choices: ['Add an engineer', 'Add an intern', 'Finish building my team'] 
+            }
+        ])
+        .then(answers => {
+            const { next } = answers;
+            console.log(next);
+            if(next === 'Add an engineer') {
+                addAnEngineer();
+            } else if (next === 'Add an intern') {
+                addAnIntern();
+            } else if (next === 'Finish building my team') {
+                generateHTML();
+            }
+        })
+
+
     })
     .catch((error) => {console.log(error)});
 }
 
-    // THEN ask what they would like to do next
 
 promptManager();
 
