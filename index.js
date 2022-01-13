@@ -3,13 +3,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const employees = require('./utils/employees');
 const Intern = require('./lib/Intern');
-// const addEngineer = require('./utils/addEngineer');
 
-// Actions needed below (all separate functions)
-
-// Ask them for manager info
-
-// Prompt the user for the data
 
 async function addEngineer() {
     const answers = await inquirer.prompt([
@@ -69,7 +63,6 @@ async function askForNextAction() {
 }
 
 async function addManager() {
-
     const answers = await inquirer.prompt([
         {
             name: 'firstName',
@@ -101,28 +94,10 @@ async function addManager() {
     console.log(employees);
 
     askForNextAction();
-
 }
      // .catch((error) => {console.log(error)});
 
-
 addManager();
-
-// Ask them for engineer info
-
-    // Prompt the user for the data
-
-        // THEN create and store an object for the Manager
-
-        // THEN ask what they would like to do next
-
-// Ask them for intern info
-
-    // Prompt the user for the data
-
-        // THEN create and store an object for the Manager
-
-        // THEN ask what they would like to do next
 
 // Ask what they would like to do next
 
