@@ -1,6 +1,7 @@
-const employees = require('../utils/employees');
+// const employees = require('../utils/employees');
 
-const generateHTML = employees => {
+const generateHtml = employees => {
+
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -25,7 +26,7 @@ const generateHTML = employees => {
                         <div class="card-header cardheader-custom">
                             <div class="card-body">
                 
-                                <h2 class="card-title text-light">Kelsey</h2>
+                                <h2 class="card-title text-light">${employees[0].firstName}</h2>
                                 <h3 class="card-subtitle lightbrown-text">Manager</h3>
                             </div>
                         </div>
@@ -94,3 +95,5 @@ const generateHTML = employees => {
     </body>
     </html>`
 }
+
+module.exports = generateHtml;

@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const employees = require('./utils/employees');
 const Intern = require('./lib/Intern');
-
+const generateHtml = require('./src/generateHtml');
 
 async function addEngineer() {
     const answers = await inquirer.prompt([
@@ -58,7 +59,12 @@ async function askForNextAction() {
     } else if (next === 'Add an intern') {
         addIntern();
     } else if (next === 'Finish building my team') {
-        generateHTML();
+        fs.writeFile(
+            './index.html',
+            generateHtml(employees),
+            (err) => 
+            err ? console.error(err) : console.log('HTML Generated')
+        )
     }
 }
 
