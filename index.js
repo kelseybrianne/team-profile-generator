@@ -2,9 +2,9 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-const employees = require('./utils/employees');
 const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generateHtml');
+const employees = require('./utils/employees');
 
 async function addEngineer() {
     const answers = await inquirer.prompt([
@@ -60,10 +60,10 @@ async function askForNextAction() {
         addIntern();
     } else if (next === 'Finish building my team') {
         fs.writeFile(
-            './index.html',
+            './dist/index.html',
             generateHtml(employees),
             (err) => 
-            err ? console.error(err) : console.log('HTML Generated')
+            err ? console.error(err) : console.log('----------Team Profile Generated----------')
         )
     }
 }
@@ -93,28 +93,11 @@ async function addManager() {
     ])
 
     const { firstName, id, email, officeNumber } = answers
-        
     const manager = new Manager(firstName, id, email, officeNumber);
     employees.push(manager);
-    console.log(manager.getRole());
-    console.log(employees);
 
     askForNextAction();
 }
      // .catch((error) => {console.log(error)});
 
 addManager();
-
-// Ask what they would like to do next
-
-    // Add Employee, Add Intern, or Be Done
-
-        // IF 'Add Engineer' -> 'Ask them for engineer info'
-
-        // IF 'Add Intern' -> 'Ask them for intern info'
-
-        // IF 'Be done' -> 'Build an html page'
-
-// Use all of the collected employee data to build an HTML paged
-
-// module.exports = employees;
