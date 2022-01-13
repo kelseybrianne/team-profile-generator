@@ -1,16 +1,15 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
-// const addEngineer = require('./utils/Engineer')
-
-const employees = [];
+const employees = require('./utils/employees');
+// const addEngineer = require('./utils/addEngineer');
 
 // Actions needed below (all separate functions)
 
 // Ask them for manager info
 
 // Prompt the user for the data
-function promptManager() {
+function askForManagerInfo() {
     inquirer  
     .prompt([
         {
@@ -59,6 +58,7 @@ function promptManager() {
             const { next } = answers;
             console.log(next);
             if(next === 'Add an engineer') {
+                // addEngineer();
                 // const addEngineer = () => {
                     inquirer  
                     .prompt([
@@ -90,7 +90,7 @@ function promptManager() {
 }
 
 
-promptManager();
+askForManagerInfo();
 
 // Ask them for engineer info
 
