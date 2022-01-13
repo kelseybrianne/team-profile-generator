@@ -68,7 +68,7 @@ async function askForNextAction() {
     }
 }
 
-async function askForManagerInfo() {
+async function addManager() {
 
     const answers = await inquirer.prompt([
         {
@@ -106,7 +106,7 @@ async function askForManagerInfo() {
      // .catch((error) => {console.log(error)});
 
 
-askForManagerInfo();
+addManager();
 
 // Ask them for engineer info
 
