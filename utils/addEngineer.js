@@ -1,4 +1,4 @@
-const Engineer = require('../lib/engineerClass');
+const Engineer = require('../lib/Engineer');
 const inquirer = require('inquirer');
 const employees = require('../index');
 

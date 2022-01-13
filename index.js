@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
-const Manager = require('./lib/managerClass');
-const Engineer = require('./lib/engineerClass');
-// const addEngineer = require('./utils/addEngineer')
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+// const addEngineer = require('./utils/Engineer')
 
 const employees = [];
 
