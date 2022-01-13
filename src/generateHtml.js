@@ -2,7 +2,7 @@
 
 const generateHtml = employees => {
 
-    return `
+    let teamProfileHtml = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -20,80 +20,38 @@ const generateHtml = employees => {
         </header>
         <main>
             <div class="container">
-    
-                <div class="d-flex row justify-content-center">
-                    <div class="card col-md-4 card-custom m-3 p-0" style="width: 18rem;">
+                <div class="d-flex row justify-content-center">`
+
+                for (let i = 0; i < employees.length; i++) {
+                    let employee = employees[i];
+                    teamProfileHtml +=
+                    `<div class="card col-md-4 card-custom m-3 p-0" style="width: 18rem;">
                         <div class="card-header cardheader-custom">
                             <div class="card-body">
-                
-                                <h2 class="card-title text-light">${employees[0].firstName}</h2>
-                                <h3 class="card-subtitle lightbrown-text">Manager</h3>
+                            
+                                <h2 class="card-title text-light">${employee.firstName}</h2>
+                                <h3 class="card-subtitle lightbrown-text">${employee.getRole()}</h3>
                             </div>
                         </div>
                         <div class="card-body beige">
                             <ul class="list-group list-group-flush m-2">
-                              <li class="list-group-item">ID: 1</li>
-                              <li class="list-group-item">Email: text@email.com</li>
-                              <li class="list-group-item">GitHub: johndoe</li>
+                                <li class="list-group-item">ID: ${employee.id}</li>
+                                <li class="list-group-item">Email: ${employee.email}</li>
+                                <li class="list-group-item">GitHub: johndoe</li>
                             </ul>
                         </div>
-                      </div>
-                    <div class="card col-md-4 card-custom m-3 p-0" style="width: 18rem;">
-                        <div class="card-header cardheader-custom">
-                            <div class="card-body">
-                
-                                <h2 class="card-title text-light">Kelsey</h2>
-                                <h3 class="card-subtitle lightbrown-text">Manager</h3>
-                            </div>
-                        </div>
-                        <div class="card-body beige">
-                            <ul class="list-group list-group-flush m-2">
-                              <li class="list-group-item">ID: 1</li>
-                              <li class="list-group-item">Email: text@email.com</li>
-                              <li class="list-group-item">GitHub: johndoe</li>
-                            </ul>
-                        </div>
-                      </div>
-                    <div class="card col-md-4 card-custom m-3 p-0" style="width: 18rem;">
-                        <div class="card-header cardheader-custom">
-                            <div class="card-body">
-                
-                                <h2 class="card-title text-light">Kelsey</h2>
-                                <h3 class="card-subtitle lightbrown-text">Manager</h3>
-                            </div>
-                        </div>
-                        <div class="card-body beige">
-                            <ul class="list-group list-group-flush m-2">
-                              <li class="list-group-item">ID: 1</li>
-                              <li class="list-group-item">Email: text@email.com</li>
-                              <li class="list-group-item">GitHub: johndoe</li>
-                            </ul>
-                        </div>
-                      </div>
-                    <div class="card col-md-4 card-custom m-3 p-0" style="width: 18rem;">
-                        <div class="card-header cardheader-custom">
-                            <div class="card-body">
-                
-                                <h2 class="card-title text-light">Kelsey</h2>
-                                <h3 class="card-subtitle lightbrown-text">Manager</h3>
-                            </div>
-                        </div>
-                        <div class="card-body beige">
-                            <ul class="list-group list-group-flush m-2">
-                              <li class="list-group-item">ID: 1</li>
-                              <li class="list-group-item">Email: text@email.com</li>
-                              <li class="list-group-item">GitHub: johndoe</li>
-                            </ul>
-                        </div>
-                      </div>
-        
-                </div>
+                    </div>`
+                }
+                    
+                `</div>
             </div>
     
         </main>
         
     </body>
     </html>`
+
+    return teamProfileHtml;
 }
 
 module.exports = generateHtml;
