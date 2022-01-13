@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const employees = require('./utils/employees');
+const Intern = require('./lib/Intern');
 // const addEngineer = require('./utils/addEngineer');
 
 // Actions needed below (all separate functions)
@@ -24,22 +25,26 @@ async function addEngineer() {
     const engineer = new Engineer(firstName);
     employees.push(engineer);
     console.log(employees);
+
+    askForNextAction();
 }
 
-async function addEngineer() {
+async function addIntern() {
     const answers = await inquirer.prompt([
         {
             name: 'firstName',
-            message: "What is the engineer's name?",
+            message: "What is the intern's name?",
             type: 'input'
         }
     ])
 
     const { firstName } = answers
         
-    const engineer = new Engineer(firstName);
-    employees.push(engineer);
+    const intern = new Intern(firstName);
+    employees.push(intern);
     console.log(employees);
+
+    askForNextAction();
 }
 
 async function askForNextAction() {
