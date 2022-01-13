@@ -9,9 +9,63 @@ const employees = require('./utils/employees');
 // Ask them for manager info
 
 // Prompt the user for the data
-function askForManagerInfo() {
-    inquirer  
-    .prompt([
+
+async function addEngineer() {
+    const answers = await inquirer.prompt([
+        {
+            name: 'firstName',
+            message: "What is the engineer's name?",
+            type: 'input'
+        }
+    ])
+
+    const { firstName } = answers
+        
+    const engineer = new Engineer(firstName);
+    employees.push(engineer);
+    console.log(employees);
+}
+
+async function addEngineer() {
+    const answers = await inquirer.prompt([
+        {
+            name: 'firstName',
+            message: "What is the engineer's name?",
+            type: 'input'
+        }
+    ])
+
+    const { firstName } = answers
+        
+    const engineer = new Engineer(firstName);
+    employees.push(engineer);
+    console.log(employees);
+}
+
+async function askForNextAction() {
+    const answers = await inquirer.prompt([
+        {
+            name: 'next',
+            message: "Who would you like to add next?",
+            type: 'list',
+            choices: ['Add an engineer', 'Add an intern', 'Finish building my team'] 
+        }
+    ])
+
+    const { next } = answers;
+    console.log(next);
+    if(next === 'Add an engineer') {
+        addEngineer();
+    } else if (next === 'Add an intern') {
+        addIntern();
+    } else if (next === 'Finish building my team') {
+        generateHTML();
+    }
+}
+
+async function askForManagerInfo() {
+
+    const answers = await inquirer.prompt([
         {
             name: 'firstName',
             message: "What is the team manager's name?",
@@ -33,61 +87,18 @@ function askForManagerInfo() {
             type: 'input'
         }
     ])
-    // THEN create and store an object for the Manager (into the globally declared array)
-    .then(answers => {
-        
-        const { firstName, id, email, officeNumber } = answers
-        
-        
-        const manager = new Manager(firstName, id, email, officeNumber);
-        employees.push(manager);
-        console.log(manager.getRole());
-        console.log(employees);
-        
-        // THEN ask what they would like to do next
-        inquirer  
-        .prompt([
-            {
-                name: 'next',
-                message: "Who would you like to add next?",
-                type: 'list',
-                choices: ['Add an engineer', 'Add an intern', 'Finish building my team'] 
-            }
-        ])
-        .then(answers => {
-            const { next } = answers;
-            console.log(next);
-            if(next === 'Add an engineer') {
-                // addEngineer();
-                // const addEngineer = () => {
-                    inquirer  
-                    .prompt([
-                        {
-                            name: 'firstName',
-                            message: "What is the engineer's name?",
-                            type: 'input'
-                        }
-                    ])
-                    .then (answers => {
-                
-                        const { firstName } = answers
-                
-                        const engineer = new Engineer(firstName);
-                        employees.push(engineer);
-                        console.log(employees);
-                    })
-                // }
-            } else if (next === 'Add an intern') {
-                addIntern();
-            } else if (next === 'Finish building my team') {
-                generateHTML();
-            }
-        })
 
+    const { firstName, id, email, officeNumber } = answers
+        
+    const manager = new Manager(firstName, id, email, officeNumber);
+    employees.push(manager);
+    console.log(manager.getRole());
+    console.log(employees);
 
-    })
-    .catch((error) => {console.log(error)});
+    askForNextAction();
+
 }
+     // .catch((error) => {console.log(error)});
 
 
 askForManagerInfo();
@@ -120,4 +131,4 @@ askForManagerInfo();
 
 // Use all of the collected employee data to build an HTML paged
 
-module.exports = employees;
+// module.exports = employees;
