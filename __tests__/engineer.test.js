@@ -27,7 +27,7 @@ describe('Engineer', () => {
     });
 
     describe('getRole', () => {
-        it("should return the id of the new employee", () => {
+        it("should return the id of the new engineer", () => {
 
             const role = 'Engineer'
  

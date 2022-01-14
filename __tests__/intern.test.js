@@ -1,37 +1,37 @@
-const Engineer = require('../lib/Engineer');
+const Intern = require('../lib/Intern');
 
-describe('Engineer', () => {
+describe('Intern', () => {
     // Methods
     describe("Initialization", () => {
         // Testing of object properties after constructing a new instance
-        it("should create an Engineer with a name, id, email, and github if provided valid arguments", () => {
-            const engineer = new Engineer('Billy', 33, 'billybob@fakemail.com', 'billybob');
+        it("should create an Intern with a name, id, email, and school if provided valid arguments", () => {
+            const intern = new Intern('Billy', 33, 'billybob@fakemail.com', 'UW');
       
             // Verify that the new object has the correct properties
-            expect(engineer.firstName).toEqual("Billy");
-            expect(engineer.id).toEqual(33);
-            expect(engineer.email).toEqual('billybob@fakemail.com');
-            expect(engineer.gitHub).toEqual('billybob');
+            expect(intern.firstName).toEqual("Billy");
+            expect(intern.id).toEqual(33);
+            expect(intern.email).toEqual('billybob@fakemail.com');
+            expect(intern.school).toEqual('UW');
           });
     })
     
-    describe('getGithub', () => {
+    describe('getSchool', () => {
 
-        it("should return the github username of the new engineer", () => {
-            const github = "billybob";
+        it("should return the school that the new intern attends", () => {
+            const school = "UW";
  
-            const result = new Engineer('Billy', 33, 'billybob@fakemail.com', github);
+            const result = new Intern('Billy', 33, 'billybob@fakemail.com', school);
             
-            expect(result.getGithub()).toEqual(github);
+            expect(result.getSchool()).toEqual(school);
         });
     });
 
     describe('getRole', () => {
-        it("should return the id of the new employee", () => {
+        it("should return the id of the new intern", () => {
 
-            const role = 'Engineer'
+            const role = 'Intern'
  
-            const result = new Engineer('Billy', 33, 'billybob@fakemail.com', role);
+            const result = new Intern('Billy', 33, 'billybob@fakemail.com', role);
             
             expect(result.getRole()).toEqual(role);
         });
