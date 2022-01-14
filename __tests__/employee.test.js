@@ -28,10 +28,9 @@ describe('Employee', () => {
     describe('getId', () => {
         it("should return the id of the new employee", () => {
 
-            const name = 'Kelsey';
             const id = '183'
  
-            const result = new Employee(name, id);
+            const result = new Employee('Kelsey', id);
             
             expect(result.getId()).toEqual(id);
         });
@@ -39,11 +38,9 @@ describe('Employee', () => {
 
     describe('getEmail', () => {
         it("should return the email of the new employee", () => {
-            const name = 'Kelsey';
-            const id = '183';
             const email = 'kb@fakemail.com';
    
-            const result = new Employee(name, id, email);
+            const result = new Employee('Kelsey', '183', email);
             
             expect(result.getEmail()).toEqual(email);
         });
