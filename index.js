@@ -6,18 +6,35 @@ const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generateHtml');
 const employees = require('./utils/employees');
 
+let teamName;
+
 async function addEngineer() {
     const answers = await inquirer.prompt([
         {
             name: 'firstName',
             message: "What is the engineer's name?",
             type: 'input'
+        },
+        {
+            name: 'id',
+            message: "What is the engineer's employee id?",
+            type: 'input'
+        },
+        {
+            name: 'email',
+            message: "What is the engineer's email address?",
+            type: 'input'
+        },
+        {
+            name: 'gitHub',
+            message: "What is the team engineer's GitHub username?",
+            type: 'input'
         }
     ])
 
-    const { firstName } = answers
+    const { firstName, id, email, gitHub } = answers
         
-    const engineer = new Engineer(firstName);
+    const engineer = new Engineer(firstName, id, email, gitHub);
     employees.push(engineer);
     console.log(employees);
 
@@ -30,12 +47,27 @@ async function addIntern() {
             name: 'firstName',
             message: "What is the intern's name?",
             type: 'input'
+        },
+        {
+            name: 'id',
+            message: "What is the intern's employee id?",
+            type: 'input'
+        },
+        {
+            name: 'email',
+            message: "What is the intern's email address?",
+            type: 'input'
+        },
+        {
+            name: 'officeNumber',
+            message: "What school is the intern attending?",
+            type: 'input'
         }
     ])
 
-    const { firstName } = answers
+    const { firstName, id, email, officeNumber } = answers
         
-    const intern = new Intern(firstName);
+    const intern = new Intern(firstName, id, email, officeNumber);
     employees.push(intern);
     console.log(employees);
 
@@ -61,7 +93,7 @@ async function askForNextAction() {
     } else if (next === 'Finish building my team') {
         fs.writeFile(
             './dist/index.html',
-            generateHtml(employees),
+            generateHtml(employees, teamName),
             (err) => 
             err ? console.error(err) : console.log('----------Team Profile Generated----------')
         )
@@ -98,6 +130,18 @@ async function addManager() {
 
     askForNextAction();
 }
+async function createTeam() {
+    const answers = await inquirer.prompt([
+        {
+            name: 'teamName',
+            message: "What would you like to name your team?",
+            type: 'input'
+        }
+    ])
+
+    teamName = answers.teamName;
+    addManager();
+}
      // .catch((error) => {console.log(error)});
 
-addManager();
+createTeam();
