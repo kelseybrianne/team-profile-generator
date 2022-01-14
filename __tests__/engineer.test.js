@@ -31,7 +31,7 @@ describe('Engineer', () => {
 
             const role = 'Engineer'
  
-            const result = new Engineer('Billy', 33, 'billybob@fakemail.com', role);
+            const result = new Engineer();
             
             expect(result.getRole()).toEqual(role);
         });

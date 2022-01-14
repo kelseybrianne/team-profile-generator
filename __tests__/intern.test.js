@@ -4,7 +4,7 @@ describe('Intern', () => {
     // Methods
     describe("Initialization", () => {
         // Testing of object properties after constructing a new instance
-        it("should create an Intern with a name, id, email, and school if provided valid arguments", () => {
+        it("should create a new intern with a name, id, email, and school if provided valid arguments", () => {
             const intern = new Intern('Billy', 33, 'billybob@fakemail.com', 'UW');
       
             // Verify that the new object has the correct properties
@@ -31,7 +31,7 @@ describe('Intern', () => {
 
             const role = 'Intern'
  
-            const result = new Intern('Billy', 33, 'billybob@fakemail.com', role);
+            const result = new Intern();
             
             expect(result.getRole()).toEqual(role);
         });
