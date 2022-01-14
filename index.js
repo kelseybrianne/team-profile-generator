@@ -9,69 +9,81 @@ const employees = require('./utils/employees');
 let teamName;
 
 async function addEngineer() {
-    const answers = await inquirer.prompt([
-        {
-            name: 'firstName',
-            message: "What is the engineer's name?",
-            type: 'input'
-        },
-        {
-            name: 'id',
-            message: "What is the engineer's employee id?",
-            type: 'input'
-        },
-        {
-            name: 'email',
-            message: "What is the engineer's email address?",
-            type: 'input'
-        },
-        {
-            name: 'gitHub',
-            message: "What is the team engineer's GitHub username?",
-            type: 'input'
-        }
-    ])
+    try {
+        const answers = await inquirer.prompt([
+            {
+                name: 'firstName',
+                message: "What is the engineer's name?",
+                type: 'input'
+            },
+            {
+                name: 'id',
+                message: "What is the engineer's employee id?",
+                type: 'input'
+            },
+            {
+                name: 'email',
+                message: "What is the engineer's email address?",
+                type: 'input'
+            },
+            {
+                name: 'gitHub',
+                message: "What is the team engineer's GitHub username?",
+                type: 'input'
+            }
+        ])
+    
+        const { firstName, id, email, gitHub } = answers
+            
+        const engineer = new Engineer(firstName, id, email, gitHub);
+        employees.push(engineer);
+        console.log(employees);
+    
+        askForNextAction();
+    }
 
-    const { firstName, id, email, gitHub } = answers
-        
-    const engineer = new Engineer(firstName, id, email, gitHub);
-    employees.push(engineer);
-    console.log(employees);
-
-    askForNextAction();
+    catch(error) {
+        console.log(error);
+    }
 }
 
 async function addIntern() {
-    const answers = await inquirer.prompt([
-        {
-            name: 'firstName',
-            message: "What is the intern's name?",
-            type: 'input'
-        },
-        {
-            name: 'id',
-            message: "What is the intern's employee id?",
-            type: 'input'
-        },
-        {
-            name: 'email',
-            message: "What is the intern's email address?",
-            type: 'input'
-        },
-        {
-            name: 'officeNumber',
-            message: "What school is the intern attending?",
-            type: 'input'
-        }
-    ])
+    try {
+        const answers = await inquirer.prompt([
+            {
+                name: 'firstName',
+                message: "What is the intern's name?",
+                type: 'input'
+            },
+            {
+                name: 'id',
+                message: "What is the intern's employee id?",
+                type: 'input'
+            },
+            {
+                name: 'email',
+                message: "What is the intern's email address?",
+                type: 'input'
+            },
+            {
+                name: 'officeNumber',
+                message: "What school is the intern attending?",
+                type: 'input'
+            }
+        ])
+    
+        const { firstName, id, email, officeNumber } = answers
+            
+        const intern = new Intern(firstName, id, email, officeNumber);
+        employees.push(intern);
+        console.log(employees);
+    
+        askForNextAction();
+    }
 
-    const { firstName, id, email, officeNumber } = answers
-        
-    const intern = new Intern(firstName, id, email, officeNumber);
-    employees.push(intern);
-    console.log(employees);
-
-    askForNextAction();
+    catch(error) {
+        console.log(error);
+    }
 }
 
 async function askForNextAction() {
@@ -107,47 +119,59 @@ async function askForNextAction() {
 }
 
 async function addManager() {
-    const answers = await inquirer.prompt([
-        {
-            name: 'firstName',
-            message: "What is the team manager's name?",
-            type: 'input'
-        },
-        {
-            name: 'id',
-            message: "What is the team manager's employee id?",
-            type: 'input'
-        },
-        {
-            name: 'email',
-            message: "What is the team manager's email address?",
-            type: 'input'
-        },
-        {
-            name: 'officeNumber',
-            message: "What is the team manager's office number?",
-            type: 'input'
-        }
-    ])
-
-    const { firstName, id, email, officeNumber } = answers
-    const manager = new Manager(firstName, id, email, officeNumber);
-    employees.push(manager);
-
-    askForNextAction();
+    try {
+        const answers = await inquirer.prompt([
+            {
+                name: 'firstName',
+                message: "What is the team manager's name?",
+                type: 'input'
+            },
+            {
+                name: 'id',
+                message: "What is the team manager's employee id?",
+                type: 'input'
+            },
+            {
+                name: 'email',
+                message: "What is the team manager's email address?",
+                type: 'input'
+            },
+            {
+                name: 'officeNumber',
+                message: "What is the team manager's office number?",
+                type: 'input'
+            }
+        ])
+    
+        const { firstName, id, email, officeNumber } = answers
+        const manager = new Manager(firstName, id, email, officeNumber);
+        employees.push(manager);
+    
+        askForNextAction();
+    }
+    
+    catch(error) {
+        console.log(error);
+    }
 }
 
 async function createTeam() {
-    const answers = await inquirer.prompt([
-        {
-            name: 'teamName',
-            message: "What would you like to name your team?",
-            type: 'input'
-        }
-    ])
+    try {
+        const answers = await inquirer.prompt([
+            {
+                name: 'teamName',
+                message: "What would you like to name your team?",
+                type: 'input'
+            }
+        ])
+    
+        teamName = answers.teamName;
+        addManager();
+    }
 
-    teamName = answers.teamName;
-    addManager();
+    catch(error) {
+        console.log(error);
+    }
 }
 
 createTeam();
