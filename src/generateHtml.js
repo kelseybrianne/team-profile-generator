@@ -22,10 +22,11 @@ const generateHtml = (employees, teamName) => {
 
     for (let i = 0; i < employees.length; i++) {
         let employee = employees[i];
-        let getInfo = ''
+        let getInfo = '';
+        let href = '';
 
         if (employee.getRole() === 'Engineer') {
-            getInfo = `GitHub: ${employee.gitHub}`
+            getInfo = `<a href="https://github.com/${employee.gitHub}">GitHub: ${employee.gitHub}</a>`
         } else if (employee.getRole() === 'Manager') {
             getInfo = `Office Number: ${employee.officeNumber}`
         } else if (employee.getRole() === 'Intern') {

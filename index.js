@@ -75,28 +75,34 @@ async function addIntern() {
 }
 
 async function askForNextAction() {
-    const answers = await inquirer.prompt([
-        {
-            name: 'next',
-            message: "Who would you like to add next?",
-            type: 'list',
-            choices: ['Add an engineer', 'Add an intern', 'Finish building my team'] 
+    try {
+        const answers = await inquirer.prompt([
+            {
+                name: 'next',
+                message: "Who would you like to add next?",
+                type: 'list',
+                choices: ['Add an engineer', 'Add an intern', 'Finish building my team'] 
+            }
+        ])
+    
+        const { next } = answers;
+        console.log(next);
+        if(next === 'Add an engineer') {
+            addEngineer();
+        } else if (next === 'Add an intern') {
+            addIntern();
+        } else if (next === 'Finish building my team') {
+            fs.writeFile(
+                './dist/index.html',
+                generateHtml(employees, teamName),
+                (err) => 
+                err ? console.error(err) : console.log('----------Team Profile Generated----------')
+            )
         }
-    ])
+    }
 
-    const { next } = answers;
-    console.log(next);
-    if(next === 'Add an engineer') {
-        addEngineer();
-    } else if (next === 'Add an intern') {
-        addIntern();
-    } else if (next === 'Finish building my team') {
-        fs.writeFile(
-            './dist/index.html',
-            generateHtml(employees, teamName),
-            (err) => 
-            err ? console.error(err) : console.log('----------Team Profile Generated----------')
-        )
+    catch(error) {
+        console.log(error);
     }
 }
 
@@ -130,6 +136,7 @@ async function addManager() {
 
     askForNextAction();
 }
+
 async function createTeam() {
     const answers = await inquirer.prompt([
         {
@@ -142,6 +149,5 @@ async function createTeam() {
     teamName = answers.teamName;
     addManager();
 }
-     // .catch((error) => {console.log(error)});
 
 createTeam();
