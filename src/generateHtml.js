@@ -44,7 +44,7 @@ const generateHtml = (employees, teamName) => {
             <div class="card-body beige">
                 <ul class="list-group list-group-flush m-2">
                     <li class="list-group-item">ID: ${employee.id}</li>
-                    <li class="list-group-item">Email: ${employee.email}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
                     <li class="list-group-item">${getInfo}</li>
                 </ul>
             </div>
