@@ -1,10 +1,8 @@
 const Employee = require('../lib/Employee');
 
 describe('Employee', () => {
-    
     // Methods
     describe("Initialization", () => {
-
         // Testing of object properties after constructing a new instance
         it("should create an Employee with a name, id, and email if provided valid arguments", () => {
             const employee = new Employee('Sarah', 3, 'sarahbett@gmail.com');
@@ -17,31 +15,47 @@ describe('Employee', () => {
     })
     
     describe('getName', () => {
-        
+
         it("should return the name of the new employee", () => {
-            // Arrange
-            // Create a new Employee object
-            const name = "Kelsey";
+            const firstName = "Kelsey";
+ 
+            const result = new Employee(firstName);
             
-            // Act
-            // Call the getName method and store the result
-            const result = new Employee(name);
-            
-            // Assert
-            // The result is equal to an expected value
-            expect(result.getName()).toEqual(name);
+            expect(result.getName()).toEqual(firstName);
         });
     });
 
-    // describe('getId', () => {
-       
-    // });
+    describe('getId', () => {
+        it("should return the id of the new employee", () => {
 
-    // describe('getEmail', () => {
-     
-    // });
+            const name = 'Kelsey';
+            const id = '183'
+ 
+            const result = new Employee(name, id);
+            
+            expect(result.getId()).toEqual(id);
+        });
+    });
 
-    // describe('getRole', () => {
+    describe('getEmail', () => {
+        it("should return the email of the new employee", () => {
+            const name = 'Kelsey';
+            const id = '183';
+            const email = 'kb@fakemail.com';
    
-    // });
+            const result = new Employee(name, id, email);
+            
+            expect(result.getEmail()).toEqual(email);
+        });
+    });
+
+    describe('getRole', () => {
+        it("should return the role of the new employee", () => {
+            const role = "Employee";
+    
+            const result = new Employee();
+        
+            expect(result.getRole()).toEqual(role);
+        });
+    });
 })
