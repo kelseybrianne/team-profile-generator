@@ -28,7 +28,7 @@ const generateHtml = (employees, teamName) => {
 
         // Add github, office number, or school to the last list item in the card depending on if the team member is an engineer, manager, or intern
         if (employee.getRole() === 'Engineer') {
-            getInfo = `<a href="https://github.com/${employee.gitHub}">GitHub: ${employee.gitHub}</a>`
+            getInfo = `GitHub: <a href="https://github.com/${employee.gitHub}" target="_blank">${employee.gitHub}</a>`
         } else if (employee.getRole() === 'Manager') {
             getInfo = `Office Number: ${employee.officeNumber}`
         } else if (employee.getRole() === 'Intern') {
