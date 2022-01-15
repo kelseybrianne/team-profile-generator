@@ -40,7 +40,6 @@ async function addEngineer() {
             
         const engineer = new Engineer(firstName, id, email, gitHub);
         employees.push(engineer);
-        console.log(employees);
     
         askForNextAction();
     }
@@ -79,7 +78,6 @@ async function addIntern() {
             
         const intern = new Intern(firstName, id, email, officeNumber);
         employees.push(intern);
-        console.log(employees);
     
         askForNextAction();
     }
@@ -101,7 +99,6 @@ async function askForNextAction() {
         ])
     
         const { next } = answers;
-        console.log(next);
         if(next === 'Add an engineer') {
             addEngineer();
         } else if (next === 'Add an intern') {
