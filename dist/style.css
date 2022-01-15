@@ -1,0 +1,47 @@
+header {
+    height: 150px;
+    background-color: #d6ccc2;
+    margin: 0 auto;
+}
+
+main {
+    margin: 3%;
+}
+
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(72, 72, 72);
+    padding-top: 50px;
+}
+
+a {
+    color: #9b8a7b;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(72, 72, 72);
+}
+
+.card-custom {
+    box-shadow: 2px 2px 15px 1px #d6ccc2;
+    width: 21rem !important;
+}
+
+.cardheader-custom {
+    background-color: #B6A391;
+}
+
+.beige {
+    background-color: #edede9;
+}
+
+.lightbrown-text {
+    color: #dad4cc;
+}
+
+.row-custom {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}

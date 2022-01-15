@@ -11,6 +11,7 @@ A Node.js command-line appication for building profile pages for software engine
 - [ User Story ](#user-story)
 - [ Acceptance Criteria ](#acceptance-criteria)
 - [ Usage ](#usage)
+- [ Sample Profile Page ](#sample-profile-page)
 - [ Technologies Used ](#technologies-used)
 - [ Questions ](#questions)
 - [ License ](#license)
@@ -54,6 +55,10 @@ node index.js
 ```
 
 Here is a walkthrough [video](https://watch.screencastify.com/v/pLUhhfDU0nNAn2jlfJ7q) that demonstrates the application's functionality.
+
+## Sample Profile Page
+
+![Screenshot of sample profile page](./assets/screenshot.png)
 
 ## Technologies Used
 
