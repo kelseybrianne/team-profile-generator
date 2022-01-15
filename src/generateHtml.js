@@ -20,11 +20,13 @@ const generateHtml = (employees, teamName) => {
             <div class="container">
                 <div class="d-flex row justify-content-center">`
 
+    // Create a card for each employee in the array
     for (let i = 0; i < employees.length; i++) {
         let employee = employees[i];
         let getInfo = '';
         let href = '';
 
+        // Add github, office number, or school to the last list item in the card depending on if the team member is an engineer, manager, or intern
         if (employee.getRole() === 'Engineer') {
             getInfo = `<a href="https://github.com/${employee.gitHub}">GitHub: ${employee.gitHub}</a>`
         } else if (employee.getRole() === 'Manager') {

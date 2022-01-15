@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 describe('Employee', () => {
-    // Methods
+    // Test each property of the employee constructor
     describe("Initialization", () => {
         // Testing of object properties after constructing a new instance
         it("should create an Employee with a name, id, and email if provided valid arguments", () => {
@@ -14,6 +14,7 @@ describe('Employee', () => {
           });
     })
     
+    // Test each method of the Employee class
     describe('getName', () => {
 
         it("should return the name of the new employee", () => {

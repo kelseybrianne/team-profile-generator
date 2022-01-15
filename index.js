@@ -1,3 +1,4 @@
+// Packages needed to run the application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
@@ -9,6 +10,7 @@ const employees = require('./utils/employees');
 let teamName;
 
 async function addEngineer() {
+    // Try and catch methods used instead of .prompt/.then and .catch for Inquirer
     try {
         const answers = await inquirer.prompt([
             {
@@ -32,7 +34,8 @@ async function addEngineer() {
                 type: 'input'
             }
         ])
-    
+        
+        // Destructuring the object so that answers.firstName = firstName and so on
         const { firstName, id, email, gitHub } = answers
             
         const engineer = new Engineer(firstName, id, email, gitHub);
