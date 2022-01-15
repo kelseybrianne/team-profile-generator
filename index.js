@@ -5,9 +5,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHtml = require('./src/generateHtml');
-const employees = require('./utils/employees');
 
 let teamName;
+let employees = [];
 
 async function addEngineer() {
     // Try and catch methods used instead of .prompt/.then and .catch for Inquirer
