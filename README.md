@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Introduction
+
 A Node.js command-line appication for building profile pages for software engineering teams. It asks users for basic information about the team and then creates a simple and neat webpage for easy reference.
 
 ## Table of Contents
@@ -52,7 +53,7 @@ From the root folder of the index.js file, run the following command in the term
 node index.js
 ```
 
-Here is a walkthrough [video]() that demonstrates the application's functionality.
+Here is a walkthrough [video](https://watch.screencastify.com/v/pLUhhfDU0nNAn2jlfJ7q) that demonstrates the application's functionality.
 
 ## Technologies Used
 
